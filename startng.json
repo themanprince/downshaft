@@ -1,0 +1,8 @@
+{
+  "leaderboard": {
+    "stats": [
+      { "key": "floors", "label": "Deepest floor", "order": "highest" },
+      { "key": "time", "label": "Time survived", "order": "highest", "format": "time" }
+    ]
+  }
+}

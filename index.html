@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>Downshaft · start.ng</title>
+  <meta name="description" content="Drop down the shaft before the spikes get you. A 3D descent game on start.ng.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=Outfit:wght@400;600;800&display=swap">
+  <link rel="stylesheet" href="src/styles.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js"
+      }
+    }
+  </script>
+</head>
+<body>
+  <canvas id="scene"></canvas>
+  <div class="abyss" aria-hidden="true"></div>
+  <div class="hurt" id="hurt" aria-hidden="true"></div>
+
+  <header class="hud">
+    <div class="startng-card" id="player-card" hidden>
+      <img id="player-face" alt="">
+      <div class="who">
+        <b id="player-name"></b>
+        <span id="player-account"></span>
+      </div>
+      <button id="player-sign-in" hidden>Sign in</button>
+    </div>
+    <div class="right">
+      <div class="floor"><small>FLOOR</small><span id="floor">B0</span></div>
+      <div class="buttons">
+        <button class="icon" id="mute" title="Sound (M)" aria-label="Toggle sound">🔊</button>
+        <button class="icon" id="pause" title="Pause (P)" aria-label="Pause">❚❚</button>
+      </div>
+    </div>
+  </header>
+  <div class="hp" id="hp-wrap" hidden>
+    <span>HP</span>
+    <div class="hp-bar" id="hp"></div>
+    <span class="time" id="time">0:00</span>
+  </div>
+
+  <div class="touch" id="touch" hidden>
+    <button id="touch-left" aria-label="Move left">◀</button>
+    <button id="touch-right" aria-label="Move right">▶</button>
+  </div>
+
+  <div class="overlay" id="overlay">
+    <div class="panel">
+      <h1 id="title">Down<span>shaft</span></h1>
+      <p class="lead" id="message">The shaft is rising into a ceiling of spikes. Drop from ledge to ledge, and don't fall into the dark.</p>
+      <div class="result" id="result" hidden></div>
+      <ul class="legend" id="legend">
+        <li><i class="t-normal"></i>Stone: +1 HP</li>
+        <li><i class="t-spikes"></i>Spikes: −4 HP</li>
+        <li><i class="t-conveyor"></i>Conveyor: carries you</li>
+        <li><i class="t-spring"></i>Spring: bounces you</li>
+        <li><i class="t-crumble"></i>Cracked: gives way</li>
+        <li><i class="t-ceiling"></i>Ceiling: −4 HP, knocks you down</li>
+      </ul>
+      <div class="actions">
+        <button class="primary" id="action">Play</button>
+        <button class="secondary" id="sign-in" hidden>Sign in to save your score</button>
+      </div>
+      <p class="keys"><b>← →</b> or <b>A D</b> to move · <b>P</b> pause · <b>M</b> sound<span class="touch-hint"> · on touch, hold the left or right side</span></p>
+      <section class="board" id="board-wrap" hidden>
+        <h2>Leaderboard</h2>
+        <ol id="board"></ol>
+      </section>
+    </div>
+  </div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
